@@ -1,0 +1,256 @@
+{
+  "function": {
+    "prefix": "fn",
+    "body": [
+      "/*!",
+      "\t\\fn ${1:prototype}",
+      "\t\\author L.Draescher <draescherl@eisti.eu>",
+      "\t\\date $CURRENT_DATE/$CURRENT_MONTH/$CURRENT_YEAR",
+      "\t\\version ${2:0.1} - ${3:first draft}",
+      "\t\\param ${4:parameters}",
+      "\t\\return ${5:returns}",
+      "\t\\brief ${6:Short description}",
+      "\t\\remarks ${7:None}",
+      "*/",
+      "$1",
+      "{",
+      "\t$0",
+      "}"
+    ],
+    "description": "Function snippet with doxygen header."
+  },
+
+  "general file": {
+    "prefix": "fileg",
+    "body": [
+      "/*!",
+      "\t\\file $TM_FILENAME",
+      "\t\\author L.Draescher <draescherl@eisti.eu>",
+      "\t\\date $CURRENT_DATE/$CURRENT_MONTH/$CURRENT_YEAR",
+      "\t\\version ${1:0.1} - ${2:first draft}",
+      "\t\\brief ${3:Short description}",
+      "\t\\remarks ${4:None}",
+      "",
+      "\t${5:Detailed description}",
+      "",
+      "*/",
+      "",
+      "/* Additional librairies */",
+      "#include <stdlib.h>",
+      "#include <stdio.h>",
+      "#include <string.h>",
+      "",
+      "/* Global variables */",
+      "",
+      "",
+      "",
+      "/*!",
+      "\t\\fn int main(int argc, char** argv)",
+      "\t\\author L.Draescher <draescherl@eisti.eu>",
+      "\t\\date $CURRENT_DATE/$CURRENT_MONTH/$CURRENT_YEAR",
+      "\t\\version $1 - $2",
+      "\t\\param argc Number of console arguments",
+      "\t\\param argv Console parameters",
+      "\t\\return 0 on success",
+      "\t\\brief Main program",
+      "\t\\remarks None",
+      "*/",
+      "int main(int argc, char** argv) {",
+      "\t$0",
+      "",
+      "\treturn(0);",
+      "}"
+    ],
+    "description": "Generate a simple C file."
+  },
+
+  "library file": {
+    "prefix": "filec",
+    "body": [
+      "/*!",
+      "\t\\file $TM_FILENAME",
+      "\t\\author L.Draescher <draescherl@eisti.eu>",
+      "\t\\date $CURRENT_DATE/$CURRENT_MONTH/$CURRENT_YEAR",
+      "\t\\version ${1:0.1} - ${2:first draft}",
+      "\t\\brief ${3:Short description}",
+      "\t\\remarks ${4:None}",
+      "",
+      "\t${5:Detailed description}",
+      "",
+      "*/",
+      "",
+      "#include \"$TM_FILENAME_BASE.h\"",
+      "",
+      "",
+      "",
+      "$0"
+    ],
+    "description": "Generate a C implementation file."
+  },
+
+  "header file":{
+    "prefix": "fileh",
+    "body": [
+      "/*!",
+      "\t\\file $TM_FILENAME",
+      "\t\\author L.Draescher <draescherl@eisti.eu>",
+      "\t\\date $CURRENT_DATE/$CURRENT_MONTH/$CURRENT_YEAR",
+      "\t\\version ${1:0.1} - ${2:first draft}",
+      "\t\\brief Header file for $TM_FILENAME_BASE.c",
+      "\t\\remarks ${3:None}",
+      "*/",
+      "",
+      "#ifndef _${TM_FILENAME_BASE/(.*)/${1:/upcase}/}_H_",
+      "#define _${TM_FILENAME_BASE/(.*)/${1:/upcase}/}_H_",
+      "",
+      "/* Additional librairies */",
+      "#include <stdlib.h>",
+      "#include <stdio.h>",
+      "#include <string.h>",
+      "",
+      "/* Global variables */",
+      "",
+      "",
+      "/* Function prototypes */",
+      "$0",
+      "",
+      "#endif"
+    ],
+    "description": "Generate a C header file."
+  },
+
+  "main file": {
+    "prefix": "filem",
+    "body": [
+      "/*!",
+      "\t\\file $TM_FILENAME",
+      "\t\\author L.Draescher <draescherl@eisti.eu>",
+      "\t\\date $CURRENT_DATE/$CURRENT_MONTH/$CURRENT_YEAR",
+      "\t\\version ${1:0.1} - ${2:first draft}",
+      "\t\\brief Main project file",
+      "\t\\remarks ${3:None}",
+      "",
+      "\t${4:Detailed description}",
+      "",
+      "*/",
+      "",
+      "/* Additional librairies */",
+      "",
+      "",
+      "",
+      "/*!",
+      "\t\\fn int main(int argc, char** argv)",
+      "\t\\author L.Draescher <draescherl@eisti.eu>",
+      "\t\\date $CURRENT_DATE/$CURRENT_MONTH/$CURRENT_YEAR",
+      "\t\\version $1 - $2",
+      "\t\\param argc Number of console arguments",
+      "\t\\param argv Console parameters",
+      "\t\\return 0 on success",
+      "\t\\brief Main program",
+      "\t\\remarks ${5:None}",
+      "*/",
+      "int main(int argc, char** argv) {",
+      "\t$0",
+      "",
+      "\treturn(0);",
+      "}"
+    ],
+    "description": "Generate a main.c file"
+  },
+
+  "comment": {
+    "prefix": "com",
+    "body": [
+      "/* $0 */"
+    ],
+    "description": "Generate an ANSI compliant comment."
+  },
+
+  "define": {
+    "prefix": "def",
+    "body": [
+      "/*! ${1:description} */",  
+      "#define ${2:name} ${3:value}"
+    ],
+    "description": "Define w/ Doxygen comment."
+  },
+
+  "enum": {
+    "prefix": "enu",
+    "body": [
+      "/*! ${1:description} */",  
+      "typedef enum {",
+      "\t${3:var1} = ${4:val1}, /*!< ${5:comment1} */",
+      "\t${6:var2} = ${7:val2} /*!< ${8:comment2} */",
+      "} ${2:name};"
+    ],
+    "description": "Enum w/ Doxygen comment."
+  },
+
+  "struct": {
+    "prefix": "stru",
+    "body": [
+      "/*! ${1:description} */",  
+      "typedef struct {",
+      "\t${3:type} ${4:var}; /*!< ${5:comment} */",
+      "} ${2:name};"
+    ],
+    "description": "Struct w/ Doxygen comment."
+  },
+
+  "if": {
+    "prefix": "if",
+    "body": [
+      "if ($0) {",
+      "\t",
+      "}"
+    ],
+    "description": "Custom if statement."
+  },
+
+  "if else": {
+    "prefix": "ifel",
+    "body": [
+      "if ($0) {",
+      "\t",
+      "} else {",
+      "\t",
+      "}"
+    ],
+    "description": "Custom if/else statement."
+  },
+
+  "if else if": {
+    "prefix": "ifelif",
+    "body": [
+      "if ($0) {",
+      "\t",
+      "} else if () {",
+      "\t",
+      "} else {",
+      "\t",
+      "}"
+    ],
+    "description": "Custom if/elseif/else statement."
+  },
+
+  "while": {
+    "prefix": "while",
+    "body": [
+      "while ($0) {",
+      "\t",
+      "}"
+    ],
+    "description": "Custom while loop."
+  },
+
+  "for": {
+    "prefix": "for",
+    "body": [
+      "for (${1:i} = ${2:0}; $1 < ${3:N}; $1++) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Custom for loop."
+  }
+}

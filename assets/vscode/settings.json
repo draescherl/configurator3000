@@ -1,0 +1,25 @@
+{
+    "workbench.colorTheme": "Atom One Dark",
+    "workbench.iconTheme": "vscode-icons",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": false,
+    "editor.fontWeight": "normal",
+    "breadcrumbs.enabled": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "window.zoomLevel": 1,
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "explorer.confirmDelete": false,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cursorStyle": "line",
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "C_Cpp.updateChannel": "Insiders",
+    "files.associations": {
+      "*.h": "c",
+      "*.c": "c"
+    },
+    "terminal.integrated.fontFamily": "FiraMono Nerd Font",
+    "explorer.confirmDragAndDrop": false,
+    "vsicons.dontShowNewVersionMessage": true
+}
