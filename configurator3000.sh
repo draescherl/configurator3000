@@ -14,6 +14,7 @@ apt upgrade -y
 # Add some colour
 
 # Install font
+mkdir /home/$SUDO_USER/.local/share/fonts/
 cp ./assets/font/* /home/$SUDO_USER/.local/share/fonts/
 
 # Copy .bashrc
