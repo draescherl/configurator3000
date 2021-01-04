@@ -14,6 +14,9 @@ apt upgrade -y
 # Copy VSCode snippets and settings
 # Add some colour
 
+# Copy .bashrc
+cp ./assets/.bashrc ~/.bashrc
+
 # Install snap store
 apt install -y snapd
 
@@ -39,6 +42,8 @@ code --install-extension ms-python.python
 code --install-extension akamud.vscode-theme-onedark
 code --install-extension vscode-icons-team.vscode-icons
 code --install-extension dusartvict.doc-doxygen
+cp ./assets/vscode/settings.json ~/.config/Code/User/settings.json
+cp ./assets/vscode/c.json ~/.config/Code/User/snippets/c.json
 
 # Install Spotify
 snap install spotify
