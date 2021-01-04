@@ -1,21 +1,21 @@
 #!/bin/bash
 
+# Run script as root
+[ "$(whoami)" != "root" ] && exec sudo -- "$0" "$@"
+
 # Update and upgrade
 apt update -y
 apt upgrade -y
 
 # TODO
-# Add message telling users to verify links (rstudio for example)
-# Then ask for confirmation before continuing
+# Add message telling users to verify links (rstudio for example) then ask for confirmation before continuing
 # Display message to the user showing progress
-# Install Node.JS, NVM and NPM
 # Fix R error message
-# Copy bashrc
-# Copy VSCode snippets and settings
 # Add some colour
 
 # Copy .bashrc
-cp ./assets/.bashrc ~/.bashrc
+cp ./assets/.bashrc /home/$SUDO_USER
+source /home/$SUDO_USER/.bashrc
 
 # Install snap store
 apt install -y snapd
@@ -25,12 +25,14 @@ apt install -y build-essential
 apt install -y libssl-dev
 
 # Install NVM and Node.js
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
-export NVM_DIR="/root/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+git clone https://github.com/nvm-sh/nvm.git /home/$SUDO_USER/.config/nvm
+cd /home/$SUDO_USER/.config/nvm
+git checkout v0.37.2
+. ./nvm.sh
 nvm install --lts
 nvm use --lts
 npm install npm@latest -g
+cd -
 
 # Install gedit-tools
 apt install gedit-plugins
@@ -42,8 +44,8 @@ code --install-extension ms-python.python
 code --install-extension akamud.vscode-theme-onedark
 code --install-extension vscode-icons-team.vscode-icons
 code --install-extension dusartvict.doc-doxygen
-cp ./assets/vscode/settings.json ~/.config/Code/User/settings.json
-cp ./assets/vscode/c.json ~/.config/Code/User/snippets/c.json
+cp ./assets/vscode/settings.json /home/$SUDO_USER/.config/Code/User/
+cp ./assets/vscode/c.json /home/$SUDO_USER/.config/Code/User/snippets/
 
 # Install Spotify
 snap install spotify
@@ -67,6 +69,9 @@ apt install -y mysql-server
 #wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.3.1093-amd64.deb -O assets/rstudio-desktop.deb
 #dpkg -i assets/rstudio-desktop.deb
 
+# Reload 
+source /home/$SUDO_USER/.bashrc
+
 # Reminders
 echo "==================================================================="
 echo "Reminders :"
@@ -77,3 +82,4 @@ echo "RStudio : Tools > Global Options > Code > Saving > Default text encoding -
 echo "RStudio : Tools > Global Options > General > Basic -> Untick \"Restore Rdata at startup\" and set \"Save workspace to .Rdata on exit\" to never"
 echo "RStudio : Tools > Global Options > Appearance -> Set editor theme to Monokai"
 echo "RStudio : might want to install some packages"
+echo "Run : source ~/.bashrc"
