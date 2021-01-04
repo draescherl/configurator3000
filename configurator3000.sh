@@ -13,6 +13,9 @@ apt upgrade -y
 # Fix R error message
 # Add some colour
 
+# Install font
+
+
 # Copy .bashrc
 cp ./assets/.bashrc /home/$SUDO_USER
 source /home/$SUDO_USER/.bashrc
