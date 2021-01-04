@@ -50,8 +50,6 @@ if [ -x /usr/bin/dircolors ]; then
   alias egrep='egrep --color=auto'
 fi
 
-alias progc='cd ~/Documents/cours/ING1/progc-ing1'
-
 # ls aliases :
 alias ll='ls -alF'
 alias la='ls -A'
@@ -67,9 +65,3 @@ alias rappel='echo compress nomArchive fichiersAArchiver'
 # random aliases :
 alias forkbomb='echo :\(\)\{ :\|:\& \};:'
 alias c='clear'
-alias site-c='sudo cytech-site-change cergy'
-
-# openvpn aliases :
-alias vpn-off='sudo /etc/init.d/openvpn stop'
-alias vpn-on='sudo /etc/init.d/openvpn start'
-alias vpn-restart='sudo /etc/init.d/openvpn restart'

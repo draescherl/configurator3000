@@ -87,4 +87,4 @@ echo "RStudio : Tools > Global Options > Code > Saving > Default text encoding -
 echo "RStudio : Tools > Global Options > General > Basic -> Untick \"Restore Rdata at startup\" and set \"Save workspace to .Rdata on exit\" to never"
 echo "RStudio : Tools > Global Options > Appearance -> Set editor theme to Monokai"
 echo "RStudio : might want to install some packages"
-echo "Run : source ~/.bashrc"
+echo "Now restart your terminal"
