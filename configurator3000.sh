@@ -16,6 +16,7 @@ apt upgrade -y
 # Install font
 mkdir /home/$SUDO_USER/.local/share/fonts/
 cp ./assets/font/* /home/$SUDO_USER/.local/share/fonts/
+fc-cache -f -v
 
 # Copy .bashrc
 cp ./assets/.bashrc /home/$SUDO_USER
