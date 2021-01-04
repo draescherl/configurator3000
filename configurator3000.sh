@@ -17,6 +17,21 @@ apt upgrade -y
 # Install snap store
 apt install -y snapd
 
+# General compilers
+apt install -y build-essential
+apt install -y libssl-dev
+
+# Install NVM and Node.js
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+export NVM_DIR="/root/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+nvm install --lts
+nvm use --lts
+npm install npm@latest -g
+
+# Install gedit-tools
+apt install gedit-plugins
+
 # Install and configure VSCode
 snap install --classic code
 code --install-extension ms-vscode.cpptools
@@ -38,18 +53,19 @@ apt install -y python3-virtualenv
 apt install -y mysql-server
 
 # Install R and RStudio
-apt install -y apt-transport-https software-properties-common
-add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57\\CBB651716619E084DAB9
-apt update -y
-apt install -y r-base
-apt install -y libclang-dev
-wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.3.1093-amd64.deb -O assets/rstudio-desktop.deb
-dpkg -i assets/rstudio-desktop.deb
+#apt install -y apt-transport-https software-properties-common
+#add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'
+#apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57\\CBB651716619E084DAB9
+#apt update -y
+#apt install -y r-base
+#apt install -y libclang-dev
+#wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.3.1093-amd64.deb -O assets/rstudio-desktop.deb
+#dpkg -i assets/rstudio-desktop.deb
 
 # Reminders
-clear
+echo "==================================================================="
 echo "Reminders :"
+echo "Gedit : Edit > Preferences > Plugins -> Enable Code Comment"
 echo "Configure MySQL : sudo mysql_secure_installation"
 echo "Start VSCode to configure extensions"
 echo "RStudio : Tools > Global Options > Code > Saving > Default text encoding -> UTF-8"
